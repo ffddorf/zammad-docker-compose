@@ -1,3 +1,5 @@
+[![Docker Build Status](https://img.shields.io/docker/build/ffddorf/zammad-docker-compose.svg)]()
+
 # Welcome to Zammad
 
 Zammad is a web based open source helpdesk/ticket system with many features
