@@ -10,7 +10,10 @@ services:
     depends_on:
       - zammad-elasticsearch
       - zammad-postgresql
-    image: zammad/zammad-docker-compose:zammad
+    image: ffddorf/zammad-docker-compose:zammad
+    build:
+      context: .
+      dockerfile: containers/zammad/Dockerfile
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.start_once: 'true'
@@ -23,7 +26,10 @@ services:
           - zammad
 
   zammad-elasticsearch:
-    image: zammad/zammad-docker-compose:zammad-elasticsearch
+    image: ffddorf/zammad-docker-compose:zammad-elasticsearch
+    build:
+      context: .
+      dockerfile: containers/zammad-elasticsearch/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     restart: always
@@ -36,7 +42,10 @@ services:
   zammad-nginx:
     depends_on:
       - zammad
-    image: zammad/zammad-docker-compose:zammad-nginx
+    image: ffddorf/zammad-docker-compose:zammad-nginx
+    build:
+      context: .
+      dockerfile: containers/zammad-nginx/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     restart: always
@@ -48,7 +57,10 @@ services:
           - app
 
   zammad-postgresql:
-    image: zammad/zammad-docker-compose:zammad-postgresql
+    image: ffddorf/zammad-docker-compose:zammad-postgresql
+    build:
+      context: .
+      dockerfile: containers/zammad-postgresql/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     restart: always
@@ -62,7 +74,10 @@ services:
   zammad-railsserver:
     depends_on:
       - zammad
-    image: zammad/zammad-docker-compose:zammad-railsserver
+    image: ffddorf/zammad-docker-compose:zammad-railsserver
+    build:
+      context: .
+      dockerfile: containers/zammad-railsserver/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     depends_on:
@@ -78,7 +93,10 @@ services:
   zammad-scheduler:
     depends_on:
       - zammad
-    image: zammad/zammad-docker-compose:zammad-scheduler
+    image: ffddorf/zammad-docker-compose:zammad-scheduler
+    build:
+      context: .
+      dockerfile: containers/zammad-scheduler/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     restart: always
@@ -92,7 +110,10 @@ services:
   zammad-websocket:
     depends_on:
       - zammad
-    image: zammad/zammad-docker-compose:zammad-websocket
+    image: ffddorf/zammad-docker-compose:zammad-websocket
+    build:
+      context: .
+      dockerfile: containers/zammad-websocket/Dockerfile
     labels:
       io.rancher.container.pull_image: always
     restart: always
